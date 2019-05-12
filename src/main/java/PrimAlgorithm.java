@@ -50,11 +50,9 @@ public class Graph {
 
             while(line!=null) { //line이 null이 아니라면
                 String listSplit[]=line.split(" "); //문자열을 구분자로 분해해 배열에 저장
-                e.v = Integer.parseInt(listSplit[0]);
-                e.w = Integer.parseInt(listSplit[1]);
-                e.weight = Integer.parseInt(listSplit[2]);
+//inline temp
+                add(Integer.parseInt(listSplit[0]),Integer.parseInt(listSplit[1]), Integer.parseInt(listSplit[2]));
 
-                add(e.v,e.w,e.weight);
                 line = reader.readLine(); //다시 다음줄로!
 
             }
