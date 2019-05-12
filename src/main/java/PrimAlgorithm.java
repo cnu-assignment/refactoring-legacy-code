@@ -48,7 +48,6 @@ public class Graph {
 
             line = reader.readLine(); //한 줄 읽으면 다음 줄로 커서가 넘어가므로 line에 또 파일의 한 줄을 읽어 String으로 변환한다
 
-/**  Simplifying Conditional Expressions // Introduce Null Object  **/
             while(line!=null) { //line이 null이 아니라면
                 String listSplit[]=line.split(" "); //문자열을 구분자로 분해해 배열에 저장
                 e.v = Integer.parseInt(listSplit[0]);
