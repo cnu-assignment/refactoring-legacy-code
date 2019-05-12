@@ -31,7 +31,7 @@ public class Graph {
 
     public Graph(String args) { //그래프 생성자 메소드
         try {
-/**  Rename method  **/
+/**  Simplifying Method Calls // Rename method  **/
             edge e = new edge();
             BufferedReader reader = new BufferedReader(new FileReader(args));
             String line = reader.readLine(); //파일로부터 한 줄 읽어 String으로 변환
@@ -48,7 +48,7 @@ public class Graph {
 
             line = reader.readLine(); //한 줄 읽으면 다음 줄로 커서가 넘어가므로 line에 또 파일의 한 줄을 읽어 String으로 변환한다
 
-/**  Introduce Null Object  **/
+/**  Simplifying Conditional Expressions // Introduce Null Object  **/
             while(line!=null) { //line이 null이 아니라면
                 String listSplit[]=line.split(" "); //문자열을 구분자로 분해해 배열에 저장
                 e.v = Integer.parseInt(listSplit[0]);
@@ -74,7 +74,7 @@ public class Graph {
         boolean [] include= new boolean[size];; /* TV를 표현한 boolean 배열 */
 
         float minWeight=Integer.MAX_VALUE;//min값을 저장할 변수에 무한대 값을 넣어 초기화 해둔다
-
+/** Organizing Data // Replace Type Code with Class **/
         int n = size;
         int minIndex=v;
         int selectEdgeCount=0; //선택된 간선의 갯수를 count하기 위해서 선언한 변수이다
@@ -83,7 +83,7 @@ public class Graph {
 
 
         for(int i=0; i<size; i++) {
-/**  Extract method  **/
+/**  Composing methods // Extract method  **/
             near[i]=-1; //near은 초기에 -1값으로 초기화
         }
 
@@ -112,10 +112,10 @@ public class Graph {
                     for(int j=0; j<size; j++) {
                         if(include[j]) {
                             for(int k=0;k<size;k++) {
-/**  Extract Variable  **/
+/**  Composing methods // Extract Variable  **/
                                 if(adjacency[j][k]!=Integer.MAX_VALUE&&adjacency[j][k]>0&&!include[k]) {
                                     near[k]=j;
-/**  Extract Variable  **/
+/**  Composing methods // Extract Variable  **/
                                     if(adjacency[j][k]<minWeight) {
                                         minWeight = adjacency[j][k];
                                         minIndex=k;
