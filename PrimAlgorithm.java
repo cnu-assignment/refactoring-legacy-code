@@ -2,6 +2,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+public class TestGraph {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Graph g = new Graph("graph.txt"); //그래프 g 생성
+        g.prim(0);
+    }
+
+}
 
 public class Graph {
     int size;
