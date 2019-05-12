@@ -68,6 +68,14 @@ public class Graph {
     } //Graph 생성자 끝
 
 
+/**  Composing methods // Extract method  **/
+    public void setup_near(Object [] near){
+        for(int i=0; i<size; i++) {
+            near[i]=-1; //near은 초기에 -1값으로 초기화
+        }
+    }
+
+
     public void prim(int v) { //들어온 int v값을 시작 정점으로
         Object [] near=new Object[size]; /*각 정점에 대해서 TV에 속해있는 정점들 중 가장 가까운 정점을 나타내는 배열 N을 넣기 위해 object타입으로 선언했다. */
         boolean [] include= new boolean[size];; /* TV를 표현한 boolean 배열 */
@@ -81,10 +89,9 @@ public class Graph {
         float sum =0;
 
 
-        for(int i=0; i<size; i++) {
 /**  Composing methods // Extract method  **/
-            near[i]=-1; //near은 초기에 -1값으로 초기화
-        }
+        setup_near(near);
+
 
         if(size==1) {
             System.out.println("정점이 하나 이므로 신장트리는 "+v+"입니다.");
@@ -112,11 +119,12 @@ public class Graph {
                         if(include[j]) {
                             for(int k=0;k<size;k++) {
 /**  Composing methods // Extract Variable  **/
-                                if(adjacency[j][k]!=Integer.MAX_VALUE&&adjacency[j][k]>0&&!include[k]) {
+                                float myadjacency = adjacency[j][k];
+                                if(myadjacency!=Integer.MAX_VALUE && myadjacency > 0 && !include[k]) {
                                     near[k]=j;
 /**  Composing methods // Extract Variable  **/
-                                    if(adjacency[j][k]<minWeight) {
-                                        minWeight = adjacency[j][k];
+                                    if(myadjacency < minWeight) {
+                                        minWeight = myadjacency;
                                         minIndex=k;
                                         index = j;
                                     }
